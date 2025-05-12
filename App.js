@@ -1,14 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { TextInput, Button, StyleSheet, Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import { TextInput, Button, StyleSheet, Text, View, SafeAreaView, Image, Alert } from 'react-native';
 
 
 
   export default function App() {
     const handleVerificarLogIn = (mail, password) => {
     const nombre = conseguirNombre(mail);
-      if(nombre == password) ? Alert.alert('Inicio de sesión exitoso') : Alert.alert('Contraseña incorrecta') 
+      (nombre == password) ? Alert.alert('Inicio de sesión exitoso') : Alert.alert('Contraseña incorrecta') 
     }
     const conseguirNombre = (text) => {
       const info = mail.split('@').map((word) => word);
@@ -18,17 +17,19 @@ import { StatusBar } from 'expo-status-bar';
   
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
-    const imagenURL = ;
   return (
-
-    <View style={styles.container}>
+    <SafeAreaView style={{flex: 1, width: 400, flexDirection: 'column', backgroundColor: '#ffffff'}}>
+    
       
       <StatusBar style="auto" />
-
-
+      <View style={styles.container}>
+      <Image
+        style={styles.tinyLogo}
+        source={require('./assets/logo.png')}
+      />
       <TextInput
         placeholder="Mail"
-        onChangeText={setNombre}
+        onChangeText={setMail}
         style={styles.input} 
       />
       <TextInput
@@ -41,21 +42,32 @@ import { StatusBar } from 'expo-status-bar';
         title="Iniciar sesión" 
         onPress={handleVerificarLogIn} />
     </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   input: {
-    borderBottomWidth: 1, 
+    borderWidth: 1, 
     marginBottom: 10,
+    height: 40,
+    width:230,
+    fontSize: 18,
   }, 
   button: {
 
+  },
+  tinyLogo: {
+    
+      width: 200,
+      height: 200,
+      resizeMode: 'contain',
+    
   }
 });
 
