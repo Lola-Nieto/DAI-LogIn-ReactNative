@@ -5,12 +5,12 @@ import { TextInput, Button, StyleSheet, Text, View, SafeAreaView, Image, Alert }
 
 
   export default function App() {
-    const handleVerificarLogIn = (mail, password) => {
+    const handleVerificarLogIn = () => {
     const nombre = conseguirNombre(mail);
       (nombre == password) ? Alert.alert('Inicio de sesión exitoso') : Alert.alert('Contraseña incorrecta') 
     }
-    const conseguirNombre = (text) => {
-      const info = mail.split('@').map((word) => word);
+    const conseguirNombre = (mail) => {
+      const info = mail.split('@');
       const nombre = info[0];
       return nombre
     }
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
   input: {
     borderWidth: 1, 
