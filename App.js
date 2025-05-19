@@ -33,6 +33,7 @@ import { TextInput, Button, StyleSheet, Text, View, SafeAreaView, Image, Alert }
         style={styles.input} 
       />
       <TextInput
+        secureTextEntry={true}
         placeholder="Contraseña"
         onChangeText={setPassword}
         style={styles.input} 
